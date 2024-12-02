@@ -52,7 +52,7 @@ class _Task_WidgetState extends State<Task_Widget> {
                     activeColor: Colors.green,
                     value: widget.note.isDon,
                     onChanged: (value) {
-                      widget.onToggle(widget.note.id); // Trigger callback
+                      widget.onToggle(widget.note.id); 
                     },
                   ),
                 ],
@@ -70,7 +70,7 @@ class _Task_WidgetState extends State<Task_Widget> {
                 ),
               ),
               Spacer(),
-              edit_time(),
+              edit_task(),
             ],
           ),
         ),
@@ -78,13 +78,13 @@ class _Task_WidgetState extends State<Task_Widget> {
     );
   }
 
-  Widget edit_time() {
+  Widget edit_task() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
         children: [
           Container(
-            width: 120,
+            width: 115,
             height: 28,
             decoration: BoxDecoration(
               color: Colors.blue,
@@ -92,8 +92,8 @@ class _Task_WidgetState extends State<Task_Widget> {
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: 12,
-                vertical: 6,
+                horizontal: 10,
+                vertical: 5,
               ),
               child: Row(
                 children: [
@@ -131,8 +131,8 @@ class _Task_WidgetState extends State<Task_Widget> {
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
+                  horizontal: 10,
+                  vertical: 5,
                 ),
                 child: Row(
                   children: [

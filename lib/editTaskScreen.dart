@@ -21,7 +21,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
 
   @override
   void initState(){
-    super.initState();
+    
     taskController = TextEditingController(text: widget.task.title);
     contentController = TextEditingController(text: widget.task.subtitle);
     timeController = TextEditingController(text: widget.task.time);
@@ -35,7 +35,9 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
 
     if(updatedTitle.isEmpty || updatedTime.isEmpty){
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Task title and Time cannot be empty"))
+        SnackBar(content: Text("Task title and Time cannot be empty",
+       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
+       backgroundColor: Colors.red,)
       );
       return;
     }

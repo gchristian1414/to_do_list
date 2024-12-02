@@ -3,8 +3,7 @@ import 'package:path/path.dart';
 import 'package:to_do_list_android/AddTaskScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:to_do_list_android/DatabaseService.dart';
-import 'package:to_do_list_android/task_card.dart'; // Import Task_Widget
-
+import 'package:to_do_list_android/task_card.dart'; 
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
@@ -75,11 +74,12 @@ class _HomePageState extends State<HomePage> {
                 _deleteTask(note.id);
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text(
-                  ("${note.title} deleted"),
+                  ("${note.title} task deleted"),
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),backgroundColor: Colors.red,));
               },
               background: Container(
+                padding: EdgeInsets.all(20),
                 color: Colors.red,
                 alignment: Alignment.centerRight,
                 child: Icon(
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.black,
         onPressed: () async {
           await Navigator.push(
             context,
@@ -103,56 +103,13 @@ class _HomePageState extends State<HomePage> {
           );
           _loadTasks();
         },
-        child: Icon(Icons.add),
+        child: Icon(Icons.add,color: Colors.white,),
       ),
-      //floatingActionButton: _addTaskButton(context),
+      
     );
   }
 
-  Widget _addTaskButton(BuildContext context) {
-    String? taskTitle;
-    String? taskSubtitle;
-    String? taskTime;
-    return FloatingActionButton(
-      backgroundColor: Colors.blue,
-      onPressed: () {
-        showDialog(
-          context: context,
-          builder: (_) => AlertDialog(
-            title: Text('Add Task'),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextField(
-                  onChanged: (value) => taskTitle = value,
-                  decoration: InputDecoration(labelText: 'Task Title'),
-                ),
-                TextField(
-                  onChanged: (value) => taskSubtitle = value,
-                  decoration: InputDecoration(labelText: 'Task Subtitle'),
-                ),
-                TextField(
-                  onChanged: (value) => taskTime = value,
-                  decoration: InputDecoration(labelText: 'Task Time'),
-                ),
-              ],
-            ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  if (taskTitle == null || taskTime == null) return;
-                  _addTask(taskTitle!, taskSubtitle ?? '', taskTime!);
-                  Navigator.pop(context);
-                },
-                child: Text('Add'),
-              ),
-            ],
-          ),
-        );
-      },
-      child: Icon(Icons.add),
-    );
-  }
+  
 }
 
 class Task {
@@ -160,7 +117,7 @@ class Task {
   final String title;
   final String subtitle;
   final String time;
-  bool isDon; // Make isDon mutable
+  bool isDon; 
 
   Task({
     required this.id,

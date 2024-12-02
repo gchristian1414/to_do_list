@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:to_do_list_android/DatabaseService.dart';
 import 'package:to_do_list_android/home_page.dart';
-import 'package:to_do_list_android/loginPage.dart';
+
 
 class SignUpPage extends StatefulWidget {
   static route() => MaterialPageRoute(
@@ -77,7 +77,7 @@ class _SignUpPageState extends State<SignUpPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => HomePage(), // Replace with your HomePage widget
+          builder: (context) => HomePage(), 
         ),
       );
       print(userCredential);
